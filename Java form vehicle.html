@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <h1 style = "font-family: Comic Sans MS;"> <center>  <u>   PORSCHE Car Retail and Selling </u> </center> </h1> 
+
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VEHICLE REGISTRATION FORM </title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body> 
+ <h3> This is to certify that Mr. Arghya Das Chattopadhyay has confirmed to the buying of a Porsche and will resort to do the same in approximately 1 month. </h3> 
+<div>
+  
+  <form
+  style = "width: 1325px; height : 600px; 
+  background-color:rgb(36, 211, 235) ;
+  border : 5px solid rgb(0, 0, 0) ; 
+   padding-top :40px ;
+    text-align : center; 
+    margin: 40px;
+     font-size: 20px">
+      
+
+     <h4>
+        <label> carModel  </label>
+        <input type = "text" id = "model" value = "">
+        
+        <br> <br>
+       
+        <label> nameOfTheRetailer </label>
+        <input type = "text" id = "name" value="">
+        
+        <br> <br>
+
+        <label> price :</label>
+        <input type="number" id="price" value=""> 
+        
+        <br> <br>
+       
+        <label> <b>processOfPayment </b> </label> <br>
+        <div id = "payment"> 
+        <input type = "radio" name ="By cash" value ="By Cash" id="bycash"> By Cash <br>
+        <input type = "radio" name ="By cash" value ="2" id = "bycheque"> By Cheque <br> 
+        </div>
+        
+
+        <label> <b> <center>dateOfSelling(to be filled in by the seller)</center> </b> </label>
+        <input type = "date" id = "datetosell" value="">
+        <br><br>
+
+        <label> <b> <center>dateOfBuying (to be filled in by the buyer)</center> </b> </label>
+        <input type = "date" id = "datetobuy" value="">
+        <br><br>
+
+       <label> isTheCarBought? </label> <br> 
+       <input type = "radio" name ="yesorno" value="3"> Yes <br>
+       <input type = "radio" name ="yesorno" value="4"> No
+        
+        <br> <br>
+     </h4>
+
+     
+     <button type ="button" onclick = "localstoragesave()"> Save </button>
+     <button type ="button" onclick = "displaying()"> Display </button>
+    </form>
+    <script>
+    
+    function localstoragesave(){
+    localStorage.setItem("Car Model", document.getElementById("model").value);
+    localStorage.setItem("Name of the Retailer", document.getElementById("name").value);
+    localStorage.setItem("Price", document.getElementById("price").value);
+    localStorage.setItem("Process of payment", document.getElementById("bycash").value);
+    localStorage.setItem("Date Of Selling", document.getElementById("datetobuy").value);
+    localStorage.setItem("Date Of Buying", document.getElementById("datetosell").value);
+    if(document.setElementbyId("payment").checked){
+        document.write(localStorage.getItem("By Cash"));
+    } else {
+        document.write(localStorage.getItem("By Cheque"));
+    }
+    }
+    function displaying(){
+        document.write("Car Model - "+document.getElementById("model").value+ '<br>' + "Name of Retailer -"+document.getElementById("name").value+ '<br>' + "Price -"+document.getElementById("price").value+ '<br>' + "Date of Selling -"+document.getElementById("datetosell").value+ '<br>' + "Date of buying -"+document.getElementById("datetobuy").value);
+    }
+
+
+    </script>
+</div>    
+</body>
+</html>
